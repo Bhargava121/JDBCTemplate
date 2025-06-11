@@ -15,10 +15,11 @@ public class Scheduler {
 	@Autowired
 	private UserDAOImpl dao;
 	
-	@Scheduled
+	@Scheduled(fixedRate = 5000)
 	public void task() {
-		System.out.println("Running task"+ cron);
-		dao.getAllUsers();
+		System.out.println("Running task"+ (dao.getUserById(1)).toString());
+		
+		//dao.getUserById(1);
 	}
 
 }
